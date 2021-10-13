@@ -1,0 +1,39 @@
+{
+  "name": "@tcm/docker-project",
+  "version": "1.0.0",
+  "description": "To create a local web development environment that uses Docker containers",
+  "type": "module",
+  "files": [
+    "/assets",
+    "/bin"
+  ],
+  "bin": {
+    "docker-project": "bin/docker-project/docker-project.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevincam3/docker-project.git"
+  },
+  "keywords": [
+    "Joomla",
+    "Docker",
+    "Project"
+  ],
+  "author": {
+    "name": "Kevin Campbell",
+    "email": "kevin@tcmsvc.com",
+    "url": "https://github.com/kevincam3/docker-project"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevincam3/docker-project/issues"
+  },
+  "homepage": "https://github.com/kevincam3/docker-project#readme",
+  "devDependencies": {
+    "prettier": "^2.4.1"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "fs-extra": "^10.0.0"
+  }
+}

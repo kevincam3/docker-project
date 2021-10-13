@@ -1,0 +1,56 @@
+version: "3"
+services:
+  mysql:
+    container_name: ${JIRA_PROJECT}_mysql${MYSQL_VERSION}
+    image: mysql:${MYSQL_VERSION}
+    restart: always
+    volumes:
+      - "./mysql${MYSQL_VERSION}:/var/lib/mysql"
+    ports:
+      - "3306:3306"
+    env_file:
+      - .env
+    networks:
+      - tcm
+  php:
+    container_name: ${JIRA_PROJECT}_php4joomla${PHP_VERSION}
+    image: kevincam/php4joomla:${PHP_VERSION}
+    volumes:
+      - "./:/var/www/html"
+      - "./php:/usr/local/etc/php"
+    ports:
+      - "80:80"
+    links:
+      - mysql
+    env_file:
+      - .env
+    networks:
+      - tcm
+  pma:
+    container_name: ${JIRA_PROJECT}_phpmyadmin${PHPMYADMIN_VERSION}
+    image: phpmyadmin/phpmyadmin:${PHPMYADMIN_VERSION}
+    ports:
+      - "8081:80"
+    links:
+      - mysql
+    env_file:
+      - .env
+    networks:
+      - tcm
+    depends_on:
+      - mysql
+  smtp:
+    container_name: ${JIRA_PROJECT}_mailcatcher${MAILCATCHER_VERSION}
+    image: kevincam/mailcatcher:${MAILCATCHER_VERSION}
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+    links:
+      - php
+    env_file:
+      - .env
+    networks:
+      - tcm
+networks:
+  tcm:
+    driver: bridge
