@@ -1,6 +1,6 @@
 {
-  "name": "@tcm/docker-project",
-  "version": "1.0.0",
+  "name": "docker-project",
+  "version": "1.0.2",
   "description": "To create a local web development environment that uses Docker containers",
   "type": "module",
   "files": [
