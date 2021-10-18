@@ -1,6 +1,6 @@
 {
   "name": "docker-project",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "To create a local web development environment that uses Docker containers",
   "type": "module",
   "files": [

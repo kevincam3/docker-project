@@ -7,7 +7,7 @@ import colors from "colors";
 // Get source and destination directories
 const projectDirectory = resolve();
 const globalNodeDir = execSync("npm root -g", { encoding: "utf-8" });
-const assetsDirectory = globalNodeDir.trim() + "/@tcm/docker-project/assets";
+const assetsDirectory = globalNodeDir.trim() + "/docker-project/assets";
 
 // Check if we have an index.php in the folder already so we don't overwrite it
 const indexPhpFile = projectDirectory + "/index.php";
